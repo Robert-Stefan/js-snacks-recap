@@ -52,3 +52,63 @@ console.log(nomi);
 const newFormat = nomi.map((element, index) => `${element.charAt(0).toUpperCase()}${nomi[index].slice(1).toLowerCase()}`);
 
 console.log(newFormat);*/
+
+
+/*
+    SNACK 4 -> VUE 
+    Partendo da un array di oggetti con i contatti di una rubrica con nome, cognome, numero, attivo (true,false)
+    Andiamo a stampare nome cognome e numero dentro una lista.
+    Fare in modo poi che i contatti non attivi (attivo: false) siano stampati di colore rosso mentre gli altri normalmente di nero. Cliccando sul numero della persona fate in modo che appaia in console il cognome della persona di cui è stato cliccato il numero
+*/
+
+const app = new Vue({
+    el: "#app",
+    data: {
+        contatti: [
+            {
+                nome: "Silvio",
+                cognome: "Berlusconi",
+                telefono: numeriRandom(1111111111, 9999999999),
+                attivo: true,
+            },
+            {
+                nome: "Francesco",
+                cognome: "Turco",
+                telefono: numeriRandom(1111111111, 9999999999),
+                attivo: false,
+            },
+            {
+                nome: "Laura",
+                cognome: "Benedetta",
+                telefono: numeriRandom(1111111111, 9999999999),
+                attivo: false,
+            },
+            {
+                nome: "Pippo",
+                cognome: "Mauri",
+                telefono: numeriRandom(1111111111, 9999999999),
+                attivo: true,
+            },
+            {
+                nome: "Pluto",
+                cognome: "Nonsifa",
+                telefono: numeriRandom(1111111111, 9999999999),
+                attivo: true,
+            },
+        ]
+    },
+    methods: {
+        lastName(index) {
+            console.log(this.contatti[index].cognome);
+        }
+    }
+})
+
+
+
+
+// FUNCTION
+
+function numeriRandom(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}

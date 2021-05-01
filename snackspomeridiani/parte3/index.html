@@ -12,7 +12,19 @@
 </head>
 <body>
     
-
+    <div id="app">
+        <h1>Rubrica</h1>
+        <ul v-for="(contatto, index) in contatti"
+            :class="{ 'color' : contatto.attivo === false }"
+        >
+            <li>
+                {{ contatto.nome }}
+                {{ contatto.cognome }}
+                - Telefono: 
+            </li>
+            <li @click=" lastName(index)"> {{ contatto.telefono }} </li>
+        </ul>
+    </div>
 
     <!--JS-->
     <script src="js/script.js"></script>
